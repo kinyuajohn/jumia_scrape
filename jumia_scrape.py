@@ -10,7 +10,7 @@ soup = BeautifulSoup(source, "lxml")
 
 with open("jumia.csv", "a") as f:
     writer = csv.writer(f)
-    writer.writerow(["name", "price", "image_link"])
+    writer.writerow(["Product", "Price", "Image URL"])
 
     for item in soup.find_all("div", class_="itm col"):
         name = item.find("img", class_="img")["alt"]
@@ -21,6 +21,3 @@ with open("jumia.csv", "a") as f:
         # print(image_link)
 
         writer.writerow([name, price, image_link])
-
-# for item in soup.find_all("div", class_="itm col"):
-#     print(item)
